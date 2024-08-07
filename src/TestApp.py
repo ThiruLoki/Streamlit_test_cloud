@@ -5,8 +5,9 @@ import pandas as pd
 from io import BytesIO
 import xlsxwriter
 
-api_key = os.getenv("OPENAI_API_KEY")
-client = openai.OpenAI(api_key=api_key)
+#api_key = os.getenv("OPENAI_API_KEY")
+#client = openai.OpenAI(api_key=api_key)
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.title("Test Suite")
 
