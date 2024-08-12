@@ -85,7 +85,7 @@ if option == "Generate test cases":
              "content": "You are an expert level test cases generator. Provide multiple test cases. These test cases should be in table format  with the following row labels - Test Case ID, Test Scenario, Test Case, Pre-condition, Test Steps, Test Data, Expected Result, Actual Result, Status (Pass/Fail) and also should be in downloadable excel format. Also under this provide Gherkin Format for every test case"},
             {"role": "user", "content": document_text}
         ]
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
@@ -122,7 +122,7 @@ if option == "Generate test scenarios":
              "content": "You are an expert level test scenario generator. Please generate complete test scenarios for - Positive test scenarios, Negative test scenarios, Edge test scenarios."},
             {"role": "user", "content": document_text}
         ]
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
@@ -146,7 +146,7 @@ if option == "Generate test script":
              "content": "You are an expert level test script generator. Please generate test scripts for the given document."},
             {"role": "user", "content": document_text}
         ]
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
@@ -159,7 +159,7 @@ if option == "Generate test script":
              "content": f"You are an expert in {language_option}. Convert the following test script into {language_option} pseudo code. The entire pseudo code should be in programming language without any error. It should be a complete script."},
             {"role": "user", "content": generated_script}
         ]
-        pseudo_response = client.chat.completions.create(
+        pseudo_response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=language_messages,
             temperature=0
@@ -179,7 +179,7 @@ if option == "Business Analyst":
              "content": "You are an expert level business analyst. Generate user stories.For the generated user stories, please include the acceptance criteria based on the functionality."},
             {"role": "user", "content": document_text}
         ]
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
@@ -194,7 +194,7 @@ if option == "Test Document":
             {"role": "system", "content": "You are an expert level test document generator. Provide a test document."},
             {"role": "user", "content": document_text}
         ]
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
